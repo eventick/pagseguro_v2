@@ -22,7 +22,6 @@ module PagSeguroV2
         # Weight of unitary item
         attr_accessor :weight
 
-
         def initialize(id, description, amount, quantity=1)
           self.id = reference
           self.description = description
@@ -31,6 +30,10 @@ module PagSeguroV2
           self.shippingCost = "0.00"
           self.weight = 0
         end
+
+        def item=(item)
+         self.items = [item]
+       end
       end
   end
 end
