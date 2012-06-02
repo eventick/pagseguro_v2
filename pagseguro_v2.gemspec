@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Cirdes Henrique", "Thiago Diniz"]
   s.email       = ["cirdes@eventick.com.br", "thiago@eventick.com.br"]
   s.homepage    = "eventick.com.br"
-  s.summary     = %q{TODO: Write a gem summary}
+  s.summary     = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "pagseguro_v2"
