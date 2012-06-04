@@ -1,17 +1,14 @@
 module PagseguroV2
   module Models
     class Shipping
-      # 1 Encomenda normal (PAC).
-      # 2 SEDEX
-      # 3  Tipo de frete não especificado.
-      attr_accessor  :type,
-          :address_country,
-          :address_state,
-          :address_city,
-          :address_district,
-          :address_street,
-          :address_number,
-          :address_complement
+      property :type, default: 3
+      property :address_country
+      property :address_state
+      property :address_city
+      property :address_district
+      property :address_street
+      property :address_number
+      property :address_complement
     end
   end
 end

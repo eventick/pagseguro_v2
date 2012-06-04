@@ -1,8 +1,8 @@
 module PagseguroV2
-    class Sender
-      attr_accessor :email
-      attr_accessor :name
-      attr_accessor :phone_areaCode
-      attr_accessor :phone_number
+    class Sender < Hashie::Dash
+      property :email
+      property :name
+      property :phone_areaCode
+      property :phone_number
     end
 end

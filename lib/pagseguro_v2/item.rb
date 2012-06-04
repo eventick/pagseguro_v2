@@ -1,37 +1,19 @@
 module PagseguroV2
-    class Item
+    class Item < Hashie::Dash
         # Identify the items being paid. You can choose codes that are meaningful to your system and inform.
-        attr_accessor :id
-
+        property :id, required: true
         # Description of the items being paid.
         # Livre, com limite de 100 caracteres.
-        attr_accessor :description
-
+        property :description, required: true
         # Unit values of the items
         # Decimal, com duas casas decimais separadas por ponto (p.e., 1234.56).
-        attr_accessor :amount
-
+        property :amount, required: true
         # Quantity of the items
         # Um número inteiro maior ou igual a 1 e menor ou igual a 999.
-        attr_accessor :quantity
-
+        property :quantity, required: true, default: 1
         # Shipping cost of unitary item
-        attr_accessor :shippingCost
-
+        property :shippingCost, default: "0.00"
         # Weight of unitary item
-        attr_accessor :weight
-
-        def initialize(id, description, amount, quantity=1)
-          self.id = reference
-          self.description = description
-          self.amount = amount
-          self.quantity = quantity
-          self.shippingCost = "0.00"
-          self.weight = 0
-        end
-
-        def item=(item)
-         self.items = [item]
-       end
-      end
+        property :weight, default: 0
+    end
 end
