@@ -1,3 +1,5 @@
+require 'httparty'
+
 require "pagseguro_v2/version"
 require "pagseguro_v2/client"
 require "pagseguro_v2/config"

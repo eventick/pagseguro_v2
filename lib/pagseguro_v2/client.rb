@@ -4,7 +4,6 @@ require 'pagseguro_v2/config'
 module PagseguroV2
   class Client
     include HTTParty
-
     base_uri PagseguroV2::Config::API_HOST
     format :xml
 
@@ -17,12 +16,18 @@ module PagseguroV2
       self.token = token
     end
 
-    def checkout(checkout)
+    def checkout(attributes)
+      checkout = Checkout.new(attributes)
+      checkout.client = self
+      checkout
+    end
+
+    def proceed_checkout(checkout)
       params = checkout.to_params
       header = {"Content-Type" => "application/xml; charset=UTF-8"}
       query = { :email => self.email, :token => self.token }
       options = {query: query, body: params, headers: header }
       response = self.class.post(PagseguroV2::Config::CHECKOUT_PATH, options)
     end
-   end
+  end
 end

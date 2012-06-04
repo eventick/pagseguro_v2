@@ -1,14 +1,14 @@
 require 'pagseguro_v2/config'
 
 module PagseguroV2
-    class Checkout
+  class Checkout
     attr_accessor :client
 
-      # The currency in which payment will be made
+    # The currency in which payment will be made
     attr_accessor :currency
 
-      # List of items contained in the payment
-      attr_accessor :items
+    # List of items contained in the payment
+    attr_accessor :items
 
         # Code that reference the payment
         attr_reader :reference

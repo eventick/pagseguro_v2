@@ -1,5 +1,4 @@
 module PagseguroV2
-  module Models
     class Item
         # Identify the items being paid. You can choose codes that are meaningful to your system and inform.
         attr_accessor :id
@@ -35,5 +34,4 @@ module PagseguroV2
          self.items = [item]
        end
       end
-  end
 end
