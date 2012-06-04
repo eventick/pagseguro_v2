@@ -1,9 +1,11 @@
+require 'config'
+
 module PagseguroV2
     class Checkout
-      attr_accessor :client
+    attr_accessor :client
 
       # The currency in which payment will be made
-      attr_accessor :currency
+    attr_accessor :currency
 
       # List of items contained in the payment
       attr_accessor :items
@@ -34,10 +36,10 @@ module PagseguroV2
         # Integer <= 30.
         attr_accessor :max_age
 
-        def initialize(reference = nil)
+        def initialize(options)
           super()
-          self.currency = PagseguroV2::CURRENCY
-          self.reference = reference
+          self.currency = PagseguroV2::Config::CURRENCY
+          @reference = option[:reference]
           self.items = []
         end
 
