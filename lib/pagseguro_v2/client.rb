@@ -1,5 +1,5 @@
 require 'httparty'
-require 'config'
+require 'pagseguro_v2/config'
 
 module PagseguroV2
   class Client
