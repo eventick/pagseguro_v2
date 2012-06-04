@@ -30,9 +30,11 @@ module PagseguroV2
 
 
     def initialize(options)
-      self.item = attributes[:item] if attributes[:item]
-      self.items = attributes[:items] if attributes[:items]
-      super(attributes.except(:items, :item))
+      self.item = options[:item] if options[:item]
+      self.items = options[:items] if options[:items]
+      options.delete(:items)
+      options.delete(:item)
+      super(options)
     end
 
     def item=(item)
