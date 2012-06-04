@@ -1,3 +1,5 @@
+require 'httparty'
+
 module PagseguroV2
   class Client
     include HTTParty
