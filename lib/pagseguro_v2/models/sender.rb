@@ -1,4 +1,4 @@
-module PagSeguroV2
+module PagseguroV2
   module Models
     class Sender
       attr_accessor :email

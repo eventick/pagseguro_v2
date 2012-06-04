@@ -1,5 +1,4 @@
-module PagSeguroV2
-  module Models
+module PagseguroV2
     class Checkout
       attr_accessor :client
 
@@ -60,5 +59,4 @@ module PagSeguroV2
         number
       end
     end
-  end
 end

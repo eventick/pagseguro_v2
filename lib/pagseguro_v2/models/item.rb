@@ -1,4 +1,4 @@
-module PagSeguroV2
+module PagseguroV2
   module Models
     class Item
         # Identify the items being paid. You can choose codes that are meaningful to your system and inform.

@@ -1,4 +1,4 @@
-module PagSeguroV2
+module PagseguroV2
   module Models
     class Shipping
       # 1 Encomenda normal (PAC).

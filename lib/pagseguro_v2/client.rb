@@ -16,7 +16,8 @@ module PagseguroV2
     def checkout(checkout)
       params = checkout.to_params
       header = {"Content-Type" => "application/xml; charset=UTF-8"}
-      options = {body: params, headers: header }
+      query = { :email => self.email, :token => self.token }
+      options = {query: query, body: params, headers: header }
       response = self.class.post(PagseguroV2::CHECKOUT_PATH, options)
     end
    end
