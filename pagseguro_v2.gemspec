@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
-  s.add_runtime_dependency "hashie"
+  s.add_runtime_dependency "hashie", '>= 1.2.0'
   s.add_runtime_dependency "httparty"
   # specify any dependencies here; for example:
   # s.add_runtime_dependency "rest-client"

@@ -1,6 +1,8 @@
 module PagSeguroV2
   module Models
     class Checkout
+      attr_accessor :client
+
       # The currency in which payment will be made
       attr_accessor :currency
 
@@ -38,6 +40,17 @@ module PagSeguroV2
           self.currency = PagseguroV2::CURRENCY
           self.reference = reference
           self.items = []
+        end
+
+        def proceed!
+          # code_blank = self.code.nil? || self.code.empty?
+          r_code = self.client.checkout(self) # if code_blank
+          self.code = r_code
+          self
+        end
+
+        def to_params()
+
         end
 
       private
