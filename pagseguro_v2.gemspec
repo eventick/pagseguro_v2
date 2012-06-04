@@ -5,11 +5,12 @@ require "pagseguro_v2/version"
 Gem::Specification.new do |s|
   s.name        = "pagseguro_v2"
   s.version     = PagseguroV2::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Cirdes Henrique", "Thiago Diniz"]
-  s.email       = ["cirdes@eventick.com.br", "thiago@eventick.com.br"]
+  s.email       = ["oi@eventick.com.br"]
   s.homepage    = "http://github.com/eventick/pagseguro_v2"
   s.summary     = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
-  s.description = %q{ Write a gem description}
+  s.description = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
 
   s.rubyforge_project = "pagseguro_v2"
 
@@ -21,6 +22,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_runtime_dependency "hashie", '>= 1.2.0'
   s.add_runtime_dependency "httparty"
-  # specify any dependencies here; for example:
-  # s.add_runtime_dependency "rest-client"
 end
