@@ -1,13 +1,13 @@
 require "spec_helper"
 
-describe PagSeguroV2::Order do
+describe PagseguroV2::Checkout do
   before do
-    @order = PagSeguroV2::Order.new
+    @checkout = PagseguroV2::Checkout.new
     @product = {:price => 9.90, :description => "Ruby 1.9 PDF", :id => 1}
   end
 
   it "should set order id when instantiating object" do
-    @order = PagSeguroV2::Order.new("ABCDEF")
-    @order.id.should == "ABCDEF"
+    @checkout = PagseguroV2::Checkout.new("ABCDEF")
+    @checkout.id.should == "ABCDEF"
   end
 end
