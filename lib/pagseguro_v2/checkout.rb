@@ -37,10 +37,25 @@ module PagseguroV2
       super(options)
     end
 
+    def items=(items)
+      items = items.map{ |i| Item.new(i) } if items.is_a? Array
+      items = [Item.new(items)] if items.is_a? Hash
+      self[:items] = items
+    end
+
     def item=(item)
       self.items = [item]
     end
 
+    def sender=(sender)
+      self[:sender] = Sender.new(sender) if sender.is_a? Hash
+      self[:sender] = sender if sender.is_a? Sender
+    end
+
+    def shipping=(shipping)
+      self[:shipping] = Shipping.new(shipping) if shipping.is_a? Hash
+      self[:shipping] = shipping if shipping.is_a? Shipping
+    end
 
     def proceed!
       # code_blank = self.code.nil? || self.code.empty?
@@ -49,8 +64,22 @@ module PagseguroV2
       self
     end
 
-    def to_params()
+    def to_hash(options = {})
+      sender = self.delete "sender"
+      shipping = self.delete "shipping"
+      items = self.delete "items"
 
+      self[:sender] = sender.to_hash(options) unless sender.nil?
+      self[:shipping] = shipping.to_hash(options) unless shipping.nil?
+      self[:items] = items.map { |i| i.to_hash(options) }
+
+      hash = super(options)
+
+      self[:sender] = sender unless sender.nil?
+      self[:shipping] = shipping unless shipping.nil?
+      self[:items] = items
+
+      return hash
     end
 
       private

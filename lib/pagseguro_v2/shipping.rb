@@ -1,6 +1,10 @@
 module PagseguroV2
   class Shipping < Hashie::Dash
-    property :type, default: 3
+    TYPE_PAC = 1
+    TYPE_SEDEX = 2
+    TYPE_NA = 3
+
+    property :type, default: TYPE_NA
     property :address_country
     property :address_state
     property :address_city
