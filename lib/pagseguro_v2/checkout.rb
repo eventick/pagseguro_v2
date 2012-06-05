@@ -28,6 +28,8 @@ module PagseguroV2
     # Integer <= 30.
     property :max_age
 
+    property :code
+    property :date
 
     def initialize(options)
       self.item = options[:item] if options[:item]
@@ -60,8 +62,9 @@ module PagseguroV2
     def proceed!
       # code_blank = self.code.nil? || self.code.empty?
       r_code = self.client.checkout(self) # if code_blank
-      self.code = r_code
-      self
+      self.code = r_code['checkout']['code']
+      self.date = r_code['checkout']['date']
+      nil
     end
 
     def to_hash(options = {})
