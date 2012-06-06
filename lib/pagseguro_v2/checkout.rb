@@ -21,11 +21,9 @@ module PagseguroV2
     # Specifies an extra value to be added or subtracted from the total payment
     property :extra_amount
     # maximum number of times the code created by the Payment API calls can be used
-    # Integer <= 0
     property :max_uses
     # Time (in seconds) during which the payment code created by
     # the Payment API call can be used.
-    # Integer <= 30.
     property :max_age
 
     property :code
@@ -65,6 +63,18 @@ module PagseguroV2
       self.code = r_code['checkout']['code']
       self.date = r_code['checkout']['date']
       nil
+    end
+
+    def max_uses
+      self[:max_uses].to_i
+    end
+
+    def max_age
+      self[:max_age].to_i
+    end
+
+    def extra_amount
+      self[:extra_amount].to_d.truncate(2)
     end
 
     def url
