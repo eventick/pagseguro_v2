@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["oi@eventick.com.br"]
   s.homepage    = "http://github.com/eventick/pagseguro_v2"
   s.summary     = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
-  s.description = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
+  s.description = %q{Ruby gem for interfacing with Pagseguro V2 API.}
 
   s.rubyforge_project = "pagseguro_v2"
 
@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_runtime_dependency "hashie", '>= 1.2.0'
   s.add_runtime_dependency "httparty"
+  s.add_runtime_dependency "builder"
 end

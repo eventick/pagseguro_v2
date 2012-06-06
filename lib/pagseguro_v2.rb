@@ -1,5 +1,6 @@
 require 'httparty'
 require 'hashie'
+require "builder"
 
 require "pagseguro_v2/version"
 require "pagseguro_v2/client"

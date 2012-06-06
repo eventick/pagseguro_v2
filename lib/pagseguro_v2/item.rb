@@ -12,8 +12,20 @@ module PagseguroV2
     # Um número inteiro maior ou igual a 1 e menor ou igual a 999.
     property :quantity, required: true, default: 1
     # Shipping cost of unitary item
-    property :shippingCost, default: "0.00"
+    property :shipping_cost, default: "0.00"
     # Weight of unitary item
     property :weight, default: 0
+
+    def to_xml(options = {})
+      builder = options[:builder] || Builder::XmlMarkup.new()
+      builder.item do |item|
+        item.id id
+        item.description description
+        item.amount amount
+        item.quantity quantity
+        item.shippingCost shipping_cost if shipping_cost
+        item.weight weight if weight
+      end
+    end
   end
 end

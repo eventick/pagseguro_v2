@@ -61,10 +61,17 @@ module PagseguroV2
 
     def proceed!
       # code_blank = self.code.nil? || self.code.empty?
-      r_code = self.client.checkout(self) # if code_blank
+      r_code = self.client.proceed_checkout(self) # if code_blank
       self.code = r_code['checkout']['code']
       self.date = r_code['checkout']['date']
       nil
+    end
+
+    def url
+      url = ""
+      blank = self.code && self.code.empty?
+      url = PagseguroV2::Config::REDIRECT_URL + self.code unless blank
+      url
     end
 
     def to_hash(options = {})
@@ -83,6 +90,33 @@ module PagseguroV2
       self[:items] = items
 
       return hash
+    end
+
+    def to_xml(options={})
+      builder = Builder::XmlMarkup.new( )
+      builder.instruct! :xml, :encoding => "UTF-8"
+      builder.checkout do |checkout|
+        checkout.currency currency
+
+        checkout.reference reference if reference
+        checkout.redirectURL redirect_url if redirect_url
+        checkout.extraAmount extra_amount if extra_amount
+        checkout.maxUses max_uses || 1
+        checkout.maxAge max_age if max_age
+
+        checkout.items do |items|
+          self.items.each{ |i| i.to_xml(:builder => items) }
+        end
+
+        if self.shipping
+            checkout.shipping self.shipping.to_xml(:builder => checkout)
+        end
+
+        if self.sender
+            checkout.sender self.sender.to_xml(:builder => checkout)
+        end
+
+      end
     end
 
       private
