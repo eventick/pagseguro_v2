@@ -10,8 +10,12 @@ module PagseguroV2
       builder.sender do |sender|
         sender.email email if email
         sender.name name if name
-        sender.phone_areaCode phone_area_code if phone_area_code
-        sender.phone_number phone_number if phone_number
+        if phone_area_number && phone_number
+          sender.phone do |phone|
+              phone.areaCode
+              phone.number
+          end
+        end
       end
     end
   end

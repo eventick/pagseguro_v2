@@ -12,18 +12,21 @@ module PagseguroV2
     property :address_street
     property :address_number
     property :address_complement
+    property :cost
 
-    def to_xml(options = {})
-      builder = options[:builder] || Builder::XmlMarkup.new()
+  def to_xml(options = {})
+    builder = options[:builder] || Builder::XmlMarkup.new()
       builder.shipping do |shipping|
         shipping.type type
-        shipping.address_country address_country if address_country
-        shipping.address_state address_state if address_state
-        shipping.address_city address_city if address_city
-        shipping.address_district address_district if address_district
-        shipping.address_street address_street if address_street
-        shipping.address_number address_number if address_number
-        shipping.address_complement address_complement if address_complement
+        shipping.address do |address|
+          address.country address_country if address_country
+          address.state address_state if address_state
+          address.city address_city if address_city
+          address.district address_district if address_district
+          address.street address_street if address_street
+          address.number address_number if address_number
+          address.complement address_complement if address_complement
+        end
       end
     end
 
