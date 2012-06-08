@@ -59,9 +59,10 @@ module PagseguroV2
 
     def proceed!
       # code_blank = self.code.nil? || self.code.empty?
-      r_code = self.client.proceed_checkout(self) # if code_blank
-      self.code = r_code['checkout']['code']
-      self.date = r_code['checkout']['date']
+      response = self.client.proceed_checkout(self) # if code_blank
+      puts response.inspect
+      self.code = response['checkout']['code']
+      self.date = response['checkout']['date']
       nil
     end
 

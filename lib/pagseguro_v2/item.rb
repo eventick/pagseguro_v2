@@ -4,8 +4,8 @@ module PagseguroV2
     property :description, required: true
     property :amount, required: true
     property :quantity, required: true, default: 1
-    property :shipping_cost, default: "0.00"
-    property :weight, default: 0
+    property :shipping_cost
+    property :weight
 
     def to_xml(options = {})
       builder = options[:builder] || Builder::XmlMarkup.new()
