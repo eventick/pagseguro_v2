@@ -1,19 +1,14 @@
 module PagseguroV2
-  class Notification < Hashie::Dash
-    property :code
-    property :type
+  class Notification < Hashie::Trash
+    property :code, :from => :notificationCode
+    property :type, :from => :notificationType
 
-    def initialize(attributes)
-      self.code = attributes.delete 'notificationCode'
-      self.type = attributes.delete 'notificationType'
-      super(attributes)
-    end
+    attr_accessor :client
 
-    def to_hash
-      hash = Hash.new
-      hash.merge!({ 'notificationCode' => self.code }) if self.code
-      hash.merge!({ 'notificationType' => self.type }) if self.type
-      hash
+    def transaction
+      response = self.client.query_transaction(self)
+      transaction = Transaction.new response['transaction']
+      transaction
     end
   end
 end

@@ -14,7 +14,7 @@ module PagseguroV2
         item.description description
         item.amount amount
         item.quantity quantity
-        item.shippingCost shipping_cost.to_s 'F' if shipping_cost
+        item.shippingCost shipping_cost if shipping_cost
         item.weight weight if weight
       end
     end

@@ -66,15 +66,11 @@ module PagseguroV2
     end
 
     def max_uses
-      self[:max_uses].to_i
+      self[:max_uses].to_i if self[:max_uses]
     end
 
     def max_age
-      self[:max_age].to_i
-    end
-
-    def extra_amount
-      self[:extra_amount].to_d.truncate(2)
+      self[:max_age].to_i if self[:max_age]
     end
 
     def url
@@ -111,7 +107,7 @@ module PagseguroV2
         checkout.reference reference if reference
         checkout.redirectURL redirect_url if redirect_url
         checkout.extraAmount extra_amount if extra_amount
-        checkout.maxUses max_uses || 1
+        checkout.maxUses max_uses if max_uses
         checkout.maxAge max_age if max_age
 
         checkout.items do |items|
@@ -119,13 +115,12 @@ module PagseguroV2
         end
 
         if self.shipping
-            checkout.shipping self.shipping.to_xml(:builder => checkout)
+          checkout.shipping self.shipping.to_xml(:builder => checkout)
         end
 
         if self.sender
-            checkout.sender self.sender.to_xml(:builder => checkout)
+          checkout.sender self.sender.to_xml(:builder => checkout)
         end
-
       end
     end
 

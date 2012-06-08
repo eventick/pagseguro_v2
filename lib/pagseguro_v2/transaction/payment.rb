@@ -31,11 +31,11 @@ module PagseguroV2
     }
 
     TYPES = {
-      credit_card: 1,
-      invoice: 2,
-      online_transfer: 3,
-      pagseguro: 4,
-      oi_paggo: 5
+      1 => :credit_card,
+      2 => :invoice,
+      3 => :online_transfer,
+      4 => :pagseguro,
+      5 => :oi_paggo
     }
 
     TYPES_STRINGS = {

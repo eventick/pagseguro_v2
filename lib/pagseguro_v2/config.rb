@@ -4,7 +4,7 @@ module PagseguroV2
     REDIRECT_URL = "https://pagseguro.uol.com.br/v2/checkout/payment.html?code="
 
     CHECKOUT_PATH = '/checkout'
-    NOTIFICATION_PATH = '/transactions/notifications'
+    NOTIFICATION_PATH = '/transactions/notifications/ID'
 
     CHARSET = "UTF-8"
     CURRENCY = "BRL"
