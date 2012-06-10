@@ -19,5 +19,7 @@ module PagseguroV2
     property :items
     property :sender
     property :shipping
+    property :last_event_date, :from => :lastEventDate
+    property :escrow_end_date, :from => :escrowEndDate
   end
 end
