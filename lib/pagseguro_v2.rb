@@ -3,6 +3,7 @@ require 'hashie'
 require 'builder'
 require 'bigdecimal'
 require 'bigdecimal/util'
+require "nokogiri"
 
 require "pagseguro_v2/version"
 require "pagseguro_v2/client"
@@ -17,7 +18,7 @@ require "pagseguro_v2/shipping"
 require "pagseguro_v2/notification"
 require "pagseguro_v2/transaction"
 
-#require "pagseguro_v2/errors/invalid_data"
+require "pagseguro_v2/errors/invalid_data"
 #require "pagseguro_v2/errors/unknown_error"
 require "pagseguro_v2/errors/unauthorized"
 

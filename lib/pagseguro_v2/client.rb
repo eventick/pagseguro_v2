@@ -49,6 +49,10 @@ module PagseguroV2
         response.body
       elsif response.code == 401
         raise PagseguroV2::Errors::Unauthorized
+      elsif response.code == 400
+        raise PagseguroV2::Errors::InvalidData.new(response.body)
+      else
+        raise PagseguroV2::Errors::UnknownError.new(response)
       end
     end
 
@@ -57,10 +61,7 @@ module PagseguroV2
       header = {"Content-Type" => "application/xml; charset=UTF-8"}
       query = { :email => self.email, :token => self.token }
       options = {query: query, body: object_xml, headers: header}
-
-      response = self.class.post(path, options)
-      puts "response code:(#{response.code})"
-      response
+      self.class.post(path, options)
     end
   end
 end
