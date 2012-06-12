@@ -17,6 +17,13 @@ require "pagseguro_v2/shipping"
 require "pagseguro_v2/notification"
 require "pagseguro_v2/transaction"
 
+#require "pagseguro_v2/errors/invalid_data"
+#require "pagseguro_v2/errors/unknown_error"
+require "pagseguro_v2/errors/unauthorized"
+
+# Error classes
+#require "errors/unauthorized"
+
 
 module PagseguroV2
   # Your code goes here...

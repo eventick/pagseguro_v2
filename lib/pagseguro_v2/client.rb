@@ -29,11 +29,7 @@ module PagseguroV2
     end
 
     def proceed_checkout(checkout)
-      response = self.post(
-          PagseguroV2::Config::CHECKOUT_PATH,
-          checkout
-      )
-      response
+      self.parse_post_response(PagseguroV2::Config::CHECKOUT_PATH, checkout)
     end
 
     def query_transaction(notification)
@@ -47,12 +43,23 @@ module PagseguroV2
       response = self.class.get(path, options)
     end
 
+    def parse_post_response(path, object)
+      response = post(path, object)
+      if response.code == 200
+        response.body
+      elsif response.code == 401
+        raise PagseguroV2::Errors::Unauthorized
+      end
+    end
+
     def post(path, object)
       object_xml = object.to_xml
       header = {"Content-Type" => "application/xml; charset=UTF-8"}
       query = { :email => self.email, :token => self.token }
       options = {query: query, body: object_xml, headers: header}
+
       response = self.class.post(path, options)
+      puts "response code:(#{response.code})"
       response
     end
   end
