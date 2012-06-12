@@ -35,18 +35,22 @@ module PagseguroV2
     def query_transaction(notification)
       path = PagseguroV2::Config::NOTIFICATION_PATH.gsub 'ID', notification.code
       options = { query: {email: email, token: token} }
-      response = self.get(path, options)
-      response
-    end
-
-    def get(path, options = {})
-      response = self.class.get(path, options)
+      parse_get_response(path, options)
     end
 
     def parse_post_response(path, object)
       response = post(path, object)
+      parse_response(response)
+    end
+
+    def parse_get_response(path, options)
+      response = get(path, options)
+      parse_response(response)
+    end
+
+    def parse_response(response)
       if response.code == 200
-        response.body
+        response
       elsif response.code == 401
         raise PagseguroV2::Errors::Unauthorized
       elsif response.code == 400
@@ -54,6 +58,10 @@ module PagseguroV2
       else
         raise PagseguroV2::Errors::UnknownError.new(response)
       end
+    end
+
+    def get(path, options = {})
+      self.class.get(path, options)
     end
 
     def post(path, object)

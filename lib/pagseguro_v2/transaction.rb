@@ -21,5 +21,9 @@ module PagseguroV2
     property :shipping
     property :last_event_date, :from => :lastEventDate
     property :escrow_end_date, :from => :escrowEndDate
+
+    def status
+      Transaction::Payment::Status[self.status]
+    end
   end
 end

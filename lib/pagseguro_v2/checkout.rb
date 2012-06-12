@@ -61,7 +61,7 @@ module PagseguroV2
       response = self.client.proceed_checkout(self) # if code_blank
       self.code = response['checkout']['code']
       self.date = response['checkout']['date']
-      nil
+      !self.code.nil? && !self.date.nil?
     end
 
     def max_uses
@@ -74,8 +74,7 @@ module PagseguroV2
 
     def url
       url = ""
-      blank = self.code && self.code.empty?
-      url = PagseguroV2::Config::REDIRECT_URL + self.code unless blank
+      url = PagseguroV2::Config::REDIRECT_URL + self.code if self.code
       url
     end
 
