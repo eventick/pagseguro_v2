@@ -17,6 +17,7 @@ require "pagseguro_v2/sender"
 require "pagseguro_v2/shipping"
 require "pagseguro_v2/notification"
 require "pagseguro_v2/transaction"
+require "pagseguro_v2/transaction/payment"
 
 require "pagseguro_v2/errors/invalid_data"
 #require "pagseguro_v2/errors/unknown_error"

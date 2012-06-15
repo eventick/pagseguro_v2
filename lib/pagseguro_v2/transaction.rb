@@ -23,7 +23,7 @@ module PagseguroV2
     property :escrow_end_date, :from => :escrowEndDate
 
     def status
-      Transaction::Payment::Status[self.status]
+      Pay::Payment::STATUS[1]
     end
   end
 end
