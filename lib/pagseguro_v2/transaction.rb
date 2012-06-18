@@ -5,6 +5,7 @@ module PagseguroV2
     property :reference
     property :type
     property :status
+    property :status_code
 
     property :payment_method, :from => :paymentMethod
 
@@ -22,8 +23,15 @@ module PagseguroV2
     property :last_event_date, :from => :lastEventDate
     property :escrow_end_date, :from => :escrowEndDate
 
-    def status
-      Pay::Payment::STATUS[1]
+    def initialize(options)
+      translate_status(options)
+      super(options)
+    end
+
+    def translate_status(options)
+      status_code = options["status"]
+      options["status"] = Codes::Payment::STATUS[status_code.to_i]
+      options["status_code"] = status_code
     end
   end
 end

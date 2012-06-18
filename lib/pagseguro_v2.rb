@@ -20,7 +20,7 @@ require "pagseguro_v2/transaction"
 require "pagseguro_v2/transaction/payment"
 
 require "pagseguro_v2/errors/invalid_data"
-#require "pagseguro_v2/errors/unknown_error"
+require "pagseguro_v2/errors/unknown_error"
 require "pagseguro_v2/errors/unauthorized"
 
 # Error classes

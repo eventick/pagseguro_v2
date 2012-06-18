@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 module PagseguroV2
-  module Pay
+  module Codes
     class Payment
       CODES = {
       101	=> "Cartão de crédito Visa",
