@@ -4,6 +4,8 @@ require 'pagseguro_v2/config'
 module PagseguroV2
   class Client
     include HTTParty
+    debug_output $stderr
+
     base_uri PagseguroV2::Config::API_HOST
     format :xml
 
