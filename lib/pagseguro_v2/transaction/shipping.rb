@@ -16,4 +16,3 @@ module PagseguroV2
     end
   end
 end
-

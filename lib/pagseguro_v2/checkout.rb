@@ -10,7 +10,7 @@ module PagseguroV2
     property :shipping
 
     # The currency in which payment will be made
-    property :currency, :required => true, :default =>  PagseguroV2::Config::CURRENCY
+    property :currency, :required => true, :default => PagseguroV2::Config::CURRENCY
     # List of items contained in the payment
     property :items, :required => true
     # Code that reference the payment
@@ -122,11 +122,11 @@ module PagseguroV2
       end
     end
 
-      private
-      # melhorar
-      def convert_unit(number, unit)
-        number = (BigDecimal("#{number}") * unit).to_i unless number.nil? || number.kind_of?(Integer)
-        number
-      end
+    private
+    # Todo: Melhorar
+    def convert_unit(number, unit)
+      number = (BigDecimal("#{number}") * unit).to_i unless number.nil? || number.kind_of?(Integer)
+      number
     end
+  end
 end
