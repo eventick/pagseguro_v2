@@ -19,8 +19,8 @@ module PagseguroV2
         sender.name name if name
         if phone_area_number && phone_number
           sender.phone do |phone|
-              phone.areaCode
-              phone.number
+            phone.areaCode
+            phone.number
           end
         end
       end

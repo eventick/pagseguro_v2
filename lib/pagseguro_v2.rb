@@ -26,7 +26,6 @@ require "pagseguro_v2/errors/unauthorized"
 # Error classes
 #require "errors/unauthorized"
 
-
 module PagseguroV2
   # Your code goes here...
 end

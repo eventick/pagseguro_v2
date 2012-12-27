@@ -10,6 +10,5 @@ module PagseguroV2
       transaction = Transaction.new response['transaction']
       transaction
     end
-
   end
 end
