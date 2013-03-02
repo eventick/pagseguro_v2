@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 $:.push File.expand_path("../lib", __FILE__)
 require "pagseguro_v2/version"
 
@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Cirdes Henrique", "Thiago Diniz"]
   s.email       = ["oi@eventick.com.br"]
+  s.license     = "MIT"
   s.homepage    = "http://github.com/eventick/pagseguro_v2"
   s.summary     = %q{Ruby gem for interfacing with Pagseguro V2 API. By http://eventick.co}
   s.description = %q{Ruby gem for interfacing with Pagseguro V2 API.}
