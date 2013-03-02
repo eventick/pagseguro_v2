@@ -8,6 +8,7 @@ module PagseguroV2
     property :status_code
 
     property :payment_method, :from => :paymentMethod
+    property :payment_link, :from => :paymentLink
 
     property :gross_amount, :from => :grossAmount
     property :discount_amount, :from => :discountAmount
