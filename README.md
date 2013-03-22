@@ -22,13 +22,11 @@ Ou via RubyGems, diretamente:
 ## API
 
 We strongly suggest you to check the PagSeguro API Documentation, in this gem we kept their nomenclature for objects
-
 https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html
 
 ## Authors
 
   * Cirdes Henrique - cirdes@eventick.br
-
   * Thiago Diniz - thiago@eventick.com.br
 
 ## Contribuindo
