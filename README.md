@@ -32,6 +32,8 @@ https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html
   * Thiago Diniz - thiago@eventick.com.br
 
 ## Contribuindo
+  * Rodrigo Alves - rodrigovieira1994@gmail.com
+  * Guilherme Barreto - guilherme@eventick.com.br
 
 ## License
 
