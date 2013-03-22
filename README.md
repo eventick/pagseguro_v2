@@ -1,11 +1,10 @@
 # PagSeguro V2
 
-PagSeguro gem for API version 2
+PagSeguro is a Brazilian payment gateway. This gem for their version 2 API.
 
 ## Instalação
 
 No Gemfile
-
 
 ```ruby
 
@@ -20,8 +19,13 @@ Ou via RubyGems, diretamente:
 
 ## Uso
 
+## API
 
-## Autores
+We strongly suggest you to check the PagSeguro API Documentation, in this gem we kept their nomenclature for objects
+
+https://pagseguro.uol.com.br/v2/guia-de-integracao/visao-geral.html
+
+## Authors
 
   * Cirdes Henrique - cirdes@eventick.br
 
@@ -29,6 +33,6 @@ Ou via RubyGems, diretamente:
 
 ## Contribuindo
 
-## Licença
+## License
 
 A gem PagSeguro V2 está sob a licença do MIT com atribuições ao Eventick http://eventick.com.br/
