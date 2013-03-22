@@ -16,6 +16,7 @@ require 'pagseguro_v2/address'
 require "pagseguro_v2/sender"
 require "pagseguro_v2/shipping"
 require "pagseguro_v2/notification"
+require "pagseguro_v2/inquiry"
 require "pagseguro_v2/transaction"
 require "pagseguro_v2/transaction/payment"
 
