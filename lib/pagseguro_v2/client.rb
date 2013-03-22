@@ -30,12 +30,24 @@ module PagseguroV2
       notification
     end
 
+    def inquiry(attributes)
+      inquiry = Inquiry.new(attributes)
+      inquiry.client = self
+      inquiry
+    end
+
     def proceed_checkout(checkout)
       self.parse_post_response(PagseguroV2::Config::CHECKOUT_PATH, checkout)
     end
 
     def query_transaction(notification)
       path = PagseguroV2::Config::NOTIFICATION_PATH.gsub 'ID', notification.code
+      options = { query: {email: email, token: token} }
+      parse_get_response(path, options)
+    end
+
+    def inquiry_transaction(inquiry)
+      path = PagseguroV2::Config::INQUIRY_PATH.gsub 'ID', inquiry.transaction_id
       options = { query: {email: email, token: token} }
       parse_get_response(path, options)
     end

@@ -5,6 +5,7 @@ module PagseguroV2
 
     CHECKOUT_PATH = '/checkout'
     NOTIFICATION_PATH = '/transactions/notifications/ID'
+    INQUIRY_PATH = '/transactions/ID'
 
     CHARSET = "UTF-8"
     CURRENCY = "BRL"
