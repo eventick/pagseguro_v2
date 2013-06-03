@@ -78,6 +78,10 @@ module PagseguroV2
       url
     end
 
+    def self.url(code)
+      PagseguroV2::Config::REDIRECT_URL + code
+    end
+
     def to_hash(options = {})
       sender = self.delete "sender"
       shipping = self.delete "shipping"
