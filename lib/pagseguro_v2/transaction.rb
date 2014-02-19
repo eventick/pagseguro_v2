@@ -24,6 +24,7 @@ module PagseguroV2
     property :last_event_date, :from => :lastEventDate
     property :escrow_end_date, :from => :escrowEndDate
     property :cancellation_source, :from => :cancellationSource
+    property :recovery_code, :from => :recoveryCode
 
     def initialize(options)
       translate_status(options)
