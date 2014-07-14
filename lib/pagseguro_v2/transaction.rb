@@ -1,6 +1,5 @@
 module PagseguroV2
   class Transaction  < Hashie::Trash
-    include Hashie::Extensions::IgnoreUndeclared
     property :date
     property :code
     property :reference
@@ -29,7 +28,8 @@ module PagseguroV2
 
     def initialize(options)
       translate_status(options)
-      super(options)
+      options_sym = Hash[options.map { |k, v| [k.to_sym, v] }]
+      super(options_sym)
     end
 
     def translate_status(options)

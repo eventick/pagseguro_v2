@@ -7,7 +7,7 @@ module PagseguroV2
 
     def transaction
       response = self.client.query_transaction(self)
-      transaction = Transaction.new response['transaction']
+      transaction = PagseguroV2::Transaction.new(response['transaction'])
       transaction
     end
   end
