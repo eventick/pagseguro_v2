@@ -1,5 +1,6 @@
 module PagseguroV2
   class Transaction  < Hashie::Trash
+    include Hashie::Extensions::IgnoreUndeclared
     property :date
     property :code
     property :reference
