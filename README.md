@@ -2,6 +2,9 @@
 
 PagSeguro is a Brazilian payment gateway. This gem for their version 2 API.
 
+
+**Essa gem não continuará sendo mantida, recomendo o uso da Gem [PagSeguro Transparente](https://github.com/eventick/pagseguro-transparente) para integração com o [Checkout Transparente](https://pagseguro.uol.com.br/receba-pagamentos.jhtml#checkout-transparent) do PagSeguro.** 
+
 ## Instalação
 
 No Gemfile
